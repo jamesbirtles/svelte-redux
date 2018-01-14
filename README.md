@@ -123,7 +123,7 @@ export const connect = bindConnect(store);
 
 ```html
 <h1>
-	Clicked {{$count}} times
+    Clicked {{$count}} times
 </h1>
 <button on:click="store.increment()">+</button>
 <button on:click="store.decrement()">-</button>
@@ -132,15 +132,15 @@ export const connect = bindConnect(store);
     import { connect } from './store';
 
     const mapStateToData = state => {
-		return {
-			count: state,
-		};
-	};
+        return {
+            count: state,
+        };
+    };
 
     const mapDispatchToStore = {
-		increment: () => ({ type: 'INCREMENT' }),
-		decrement: () => ({ type: 'DECREMENT' }),
-	}
+        increment: () => ({ type: 'INCREMENT' }),
+        decrement: () => ({ type: 'DECREMENT' }),
+    }
 
     export default {
         store: connect(mapStateToData, mapDispatchToStore)
