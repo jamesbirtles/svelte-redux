@@ -1,0 +1,24 @@
+{
+    "name": "svelte-redux",
+    "version": "1.0.0",
+    "description": "Connect svelte components to a redux store.",
+    "main": "dist/index.js",
+    "types": "dist/index",
+    "scripts": {
+        "build": "tsc"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/UnwrittenFun/svelte-redux.git"
+    },
+    "keywords": ["svelte", "redux"],
+    "author": "James Birtles <jameshbirtles@gmail.com>",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/UnwrittenFun/svelte-redux/issues"
+    },
+    "homepage": "https://github.com/UnwrittenFun/svelte-redux#readme",
+    "dependencies": {
+        "redux": "^3.0.0"
+    }
+}
