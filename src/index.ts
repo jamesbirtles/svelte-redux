@@ -40,6 +40,7 @@ export function connect<S>(
             },
 
             _add(component: Component, keys: string[]) {
+                component.set(mapStateToData$(store.getState(), component));
                 svelteStore._unsub = store.subscribe(() => {
                     component.set(mapStateToData$(store.getState(), component));
                 });
