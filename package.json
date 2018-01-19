@@ -12,7 +12,10 @@
         "type": "git",
         "url": "git+https://github.com/UnwrittenFun/svelte-redux.git"
     },
-    "keywords": ["svelte", "redux"],
+    "keywords": [
+        "svelte",
+        "redux"
+    ],
     "author": "James Birtles <jameshbirtles@gmail.com>",
     "license": "MIT",
     "bugs": {
