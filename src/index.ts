@@ -1,6 +1,6 @@
 import { Store, Unsubscribe, Dispatch, ActionCreator, bindActionCreators } from 'redux';
 
-type Component = any;
+export type Component = any;
 
 interface SvelteStore {
     [index: string]: any;
@@ -11,7 +11,7 @@ interface SvelteStore {
     _remove(component: Component): void;
 }
 
-export type MapState<S> = (state: S) => { [key: string]: any };
+export type MapState<S> = (state: S, component?: Component) => { [key: string]: any };
 export type MapDispatch<S> = (
     dispatch: Dispatch<S>,
 ) => { [key: string]: (...args: any[]) => void } | { [key: string]: ActionCreator<any> };
@@ -21,8 +21,8 @@ export function connect<S>(
     mapStateToData: MapState<S>,
     mapDispatchToStore?: MapDispatch<S>,
 ) {
-    function mapStateToData$(state: S) {
-        const mapped = mapStateToData(state);
+    function mapStateToData$(state: S, component?: Component) {
+        const mapped = mapStateToData(state, component);
         return Object.keys(mapped).reduce(
             (data, key) => ({ ...data, ['$' + key]: mapped[key] }),
             {},
@@ -41,7 +41,7 @@ export function connect<S>(
 
             _add(component: Component, keys: string[]) {
                 svelteStore._unsub = store.subscribe(() => {
-                    component.set(mapStateToData$(store.getState()));
+                    component.set(mapStateToData$(store.getState(), component));
                 });
             },
 
